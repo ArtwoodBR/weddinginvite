@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christopher & Dr. Becky Bianca | Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    :root {
+      --burnt-orange: #b85c38;
+      --burnt-orange-deep: #8f4629;
+      --sage: #9caf88;
+      --sage-deep: #77856a;
+      --cream: #f8f3ec;
+      --soft-white: rgba(255,255,255,0.9);
+      --text-dark: #2f241f;
+      --text-muted: #6f625a;
+      --card: rgba(255,255,255,0.14);
+      --border: rgba(255,255,255,0.25);
+      --shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background:
+        radial-gradient(circle at top left, rgba(184,92,56,0.12), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(156,175,136,0.16), transparent 25%),
+        var(--cream);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(184,92,56,0.04), rgba(156,175,136,0.04));
+      z-index: -2;
+    }
+
+    .floating-leaf, .floating-leaf::before, .floating-leaf::after {
+      position: absolute;
+      border-radius: 60% 40% 60% 40%;
+      background: rgba(27, 52, 1, 0.18);
+      filter: blur(1px);
+    }
+
+    .floating-leaf {
+      width: 120px;
+      height: 60px;
+      top: 8%;
+      left: 4%;
+      transform: rotate(-18deg);
+      animation: drift 10s ease-in-out infinite;
+    }
+
+    .floating-leaf::before {
+      content: "";
+      width: 90px;
+      height: 45px;
+      right: -28px;
+      top: 28px;
+      transform: rotate(26deg);
+    }
+
+    .floating-leaf::after {
+      content: "";
+      width: 86px;
+      height: 42px;
+      left: 30px;
+      top: 70px;
+      transform: rotate(-10deg);
+    }
+
+    @keyframes drift {
+      0%,100% { transform: translateY(0) rotate(-18deg); }
+      50% { transform: translateY(12px) rotate(-12deg); }
+    }
+
+    .nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1100px, calc(100% - 28px));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.3);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 999px;
+      z-index: 20;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--burnt-orange-deep);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover { color: var(--burnt-orange); }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 110px 20px 50px;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(26,18,12,0.45), rgba(26,18,12,0.58)),
+        url('/mnt/data/CnD.JPG') center/cover no-repeat;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 35%, rgba(0,0,0,0.25) 100%);
+      z-index: -1;
+    }
+
+    .hero-card {
+      width: min(980px, 100%);
+      padding: 34px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08));
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+      color: #fff;
+      text-align: center;
+      animation: fadeUp 1s ease both;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(156,175,136,0.2);
+      border: 1px solid rgba(255,255,255,0.25);
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.7rem, 7vw, 5.5rem);
+      line-height: 0.98;
+      margin: 0;
+      text-shadow: 0 10px 35px rgba(0,0,0,0.35);
+    }
+
+    .hero .sub {
+      max-width: 700px;
+      margin: 18px auto 28px;
+      font-size: 1.04rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .pill {
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(8px);
+      font-size: 0.95rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-weight: 600;
+      font-size: 0.98rem;
+      cursor: pointer;
+      transition: 0.25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--burnt-orange), var(--burnt-orange-deep));
+      color: #fff;
+      box-shadow: 0 16px 30px rgba(184,92,56,0.35);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(90px, 1fr));
+      gap: 14px;
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .count-card {
+      padding: 18px 10px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.24);
+      backdrop-filter: blur(10px);
+    }
+
+    .count-card strong {
+      display: block;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .count-card span {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.82);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      width: min(1150px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 92px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-title .mini {
+      color: var(--burnt-orange);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .section-title h2 {
+      margin: 0 0 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      color: var(--text-dark);
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    .details-grid,
+    .gallery-grid,
+    .info-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .details-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(184,92,56,0.12);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: 0 18px 45px rgba(90,56,34,0.08);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-family: 'Playfair Display', serif;
+      color: var(--burnt-orange-deep);
+      font-size: 1.45rem;
+    }
+
+    .card p, .card li {
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .card ul {
+      padding-left: 18px;
+      margin: 12px 0 0;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .timeline-step {
+      position: relative;
+      padding: 28px 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.84));
+      border-radius: 26px;
+      border: 1px solid rgba(156,175,136,0.22);
+      box-shadow: 0 18px 45px rgba(67,72,55,0.07);
+    }
+
+    .step-no {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sage), var(--sage-deep));
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .timeline-step h4 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      color: var(--text-dark);
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      grid-template-rows: 260px 260px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      min-height: 220px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-item.large {
+      grid-row: span 2;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 18px;
+      color: #fff;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.6));
+      font-size: 0.96rem;
+    }
+
+    .info-grid {
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: start;
+    }
+
+    .rsvp-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(184,92,56,0.1), rgba(156,175,136,0.16), rgba(255,255,255,0.8));
+      border: 1px solid rgba(184,92,56,0.14);
+      box-shadow: 0 22px 60px rgba(97,63,42,0.12);
+    }
+
+    .rsvp-shell::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(184,92,56,0.08);
+      top: -70px;
+      right: -80px;
+    }
+
+    .rsvp-inner {
+      position: relative;
+      padding: 34px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 7px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(111,98,90,0.16);
+      background: rgba(255,255,255,0.88);
+      font: inherit;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(184,92,56,0.42);
+      box-shadow: 0 0 0 4px rgba(184,92,56,0.1);
+    }
+
+    textarea { min-height: 110px; resize: vertical; }
+
+    .result {
+      margin-top: 18px;
+      border-radius: 20px;
+      padding: 16px 18px;
+      font-weight: 500;
+      line-height: 1.7;
+      display: none;
+    }
+
+    .result.show { display: block; }
+    .result.success { background: rgba(156,175,136,0.18); color: #31422b; }
+    .result.error { background: rgba(184,92,56,0.12); color: #7b3720; }
+
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.74);
+      border: 1px solid rgba(111,98,90,0.12);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(184,92,56,0.08);
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .faq-item h4 {
+      margin: 0 0 8px;
+      color: var(--burnt-orange-deep);
+    }
+
+    .footer {
+      padding: 40px 20px 60px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .details-grid,
+      .timeline,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 240px 240px 240px;
+      }
+
+      .gallery-item.large {
+        grid-row: span 1;
+        grid-column: span 2;
+      }
+
+      .nav {
+        border-radius: 24px;
+        padding: 14px;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 12px;
+        justify-content: flex-end;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav {
+        position: static;
+        transform: none;
+        width: calc(100% - 24px);
+        margin: 12px auto 0;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .hero-card,
+      .rsvp-inner,
+      .card,
+      .timeline-step {
+        padding: 22px;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 220px);
+      }
+
+      .gallery-item.large {
+        grid-column: span 1;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-leaf"></div>
+
+  <nav class="nav">
+    <div class="brand">C &amp; B</div>
+    <div class="nav-links">
+      <a href="#details">Details</a>
+      <a href="#journey">Journey</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#gifts">Gifts</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-card">
+      <div class="eyebrow">Together Forever</div>
+      <h1>Christopher Oklu <br>&amp; Dr. Becky Bianca</h1>
+      <p class="sub">
+        With hearts full of gratitude and joy, we invite you to witness and celebrate the beginning of our forever.
+        Please join us for our wedding celebration on Saturday, 20th June, 2026.
+      </p>
+
+      <div class="hero-meta">
+        <div class="pill">20th June, 2026</div>
+        <div class="pill">Burnt Orange &amp; Sage Green</div>
+        <div class="pill">Luxury Celebration</div>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#rsvp">RSVP &amp; Find Table</a>
+        <a class="btn btn-secondary" href="#details">View Invitation</a>
+      </div>
+
+      <div class="countdown" id="countdown">
+        <div class="count-card"><strong id="days">00</strong><span>Days</span></div>
+        <div class="count-card"><strong id="hours">00</strong><span>Hours</span></div>
+        <div class="count-card"><strong id="minutes">00</strong><span>Minutes</span></div>
+        <div class="count-card"><strong id="seconds">00</strong><span>Seconds</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section reveal" id="details">
+    <div class="section-title">
+      <span class="mini">The Invitation</span>
+      <h2>A Day of Love, Beauty, and Celebration</h2>
+      <p>
+        Save the date and celebrate this unforgettable day with us. You are warmly invited to share in our vows,
+        our joy, and a beautiful evening of laughter, elegance, and love.
+      </p>
+    </div>
+
+    <div class="info-grid">
+      <div class="card" style="padding: 18px; overflow: hidden;">
+        <div style="border-radius: 24px; overflow: hidden; min-height: 420px; box-shadow: 0 18px 45px rgba(0,0,0,0.12);">
+          <img src="Images/test.jpg" alt="Christopher and Dr. Becky Bianca" style="width: 100%; height: 100%; min-height: 570px; object-fit: cover; display: block;">
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom: 20px;">
+          <h3>Ceremony</h3>
+          <p>
+            Saturday, 20th June, 2026<br>
+            Ceremony begins at 1:00 PM prompt,<br>
+            Reception follows after service @ Tema Parents
+          </p>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <h3>Location</h3>
+          <p>
+            Wedding venue<br>
+          </p>
+          <div style="margin-top: 18px;">
+            <a class="btn btn-primary" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Open Venue Location</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Dress Code</h3>
+          <p>
+            Elegant formal attire in tones that complement our celebration palette:
+            burnt orange, sage green.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    </div>
+  </section>
+
+  <section class="section reveal" id="gallery">
+    <div class="section-title">
+      <span class="mini">Our Journey</span>
+      <h2>A Glimpse of Our Story</h2>
+      <p>
+        Our love story begun through our service in the church.
+
+I had joined the Edify church to keep fellowship while I pursued graduate medicine in Korlebu Teaching Hospital. Christopher served as the associate pastor in the same church.
+
+We were assigned to the same hostel for evangelism.
+Looking back perhaps the closing of doors in our faces and cold reception brought us together to encourage each other. 
+
+We worked on many other projects together :worship nights, church hangouts for several years.
+
+Our relationship remained platonic for several years. I was single and he was in a relationship then.
+
+On one such evening, I inquired about how his relationship life was going because I had been expecting a wedding invitation for a while.
+
+He confided in me how it had come to an end..I left that meeting with a resolve to pray for him that God would send him a good woman. 
+
+There was a holy anger in my spirit as to how someone who had loved God and served so faithfully lacked a help mate. I still can't believe I was praying for my own self.
+
+After that conversation Pastor Chris begun to check up a bit more frequently.. He suddenly needed to keep the camera bag because it suddenly became heavy. Lol.
+
+The awkward church side hugs became full hugs, the conversation moved from "have you bought the communion" to have you eaten. <br>
+
+One evening  walking to prayer meeting I prayed slightly in my heart that God would bring a Godly man my way... 
+
+That same evening Lydia my close friend called to ask if I had seen anyone in the church I was considering. I mentioned that I saw Pastor Chris as my brother. She asked which of my mother's children he was 😅.
+I begun to think about him a bit more and started a fast for some clarity.
+
+Shortly afterwards he asked me to go out for dinner with him after rehearsal...
+
+At that date we had a long conversation and had to leave because the restaurant was closing.
+
+I knew at that meeting he would be my husband.
+There was so much peace just considering the idea ..
+
+I told my mum I felt too young to date "she called me a foolish girl and encouraged me to go ahead"
+
+As the days went by the awkward side hugs in church became full hugs.The short official calls for church became long night calls. 
+
+Time flies when you're having fun. Today, we celebrate a year and a half of growing in love and understanding (no drama here) trusting God for many more years of bliss.🥰❤️
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item large">
+        <img src="Images/d1.jpg" alt="Christopher and Dr. Becky Bianca">
+        <div class="gallery-caption">Our favorite smile, our forever story.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Images/d2.jpg" alt="Couple portrait">
+        <div class="gallery-caption">Joy, laughter, and love.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Images/d3.jpg" alt="Couple portrait">
+        <div class="gallery-caption">Gracefully becoming one.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Images/d4.jpg" alt="Couple portrait">
+        <div class="gallery-caption">A celebration worth dressing up for.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="rsvp">
+    <div class="section-title">
+      <span class="mini">RSVP</span>
+      <h2>Confirm Attendance &amp; Receive Your Table Number</h2>
+      <p>
+        Enter your details below. If your name is on the guest list, your table number appears instantly and can also be sent to your email.
+      </p>
+    </div>
+
+    <div class="info-grid">
+      <div class="rsvp-shell">
+        <div class="rsvp-inner">
+          <form id="rsvpForm" class="form-grid">
+            <div>
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div>
+              <label for="attendance">Will you be attending?</label>
+              <select id="attendance" required>
+                <option value="">Select an option</option>
+                <option value="Yes, I will attend">Yes, I will attend</option>
+                <option value="Regretfully unable to attend">Regretfully unable to attend</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="notes">Message to the Couple (Optional)</label>
+              <textarea id="notes" placeholder="Leave a kind note or special message"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit RSVP</button>
+          </form>
+
+          <div id="result" class="result"></div>
+
+          <div class="badge-row">
+            <div class="badge">Instant table lookup</div>
+            <div class="badge">Email confirmation</div>
+            <div class="badge">Elegant guest experience</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom: 20px;">
+          <h3>How It Works</h3>
+          <ul>
+            <li>Guest enters full name and email address.</li>
+            <li>Kindly make sure your name is spelt correctly</li>
+            <li>If you face any challenges kindly contact 0544060809</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Important Notes</h3>
+          <ul>
+            <li>The table number you receive is the table you will be seated at during the event</li>
+            <li>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="gifts">
+    <div class="section-title">
+      <span class="mini">Gifts and Giving</span>
+      <h2>Your Presence Is Our Greatest Gift</h2>
+      <p>
+        For those who would like to bless us further, we have shared simple giving options below.
+      </p>
+    </div>
+
+    <div class="info-grid">
+      <div class="card">
+        <h3>A Note From Us</h3>
+        <p>
+          We can't wait to celebrate our big day with you! We've decided not to do a traditional gift registry - our home is already full of love (and kitchenware).<br><br>
+
+          If you'd like to bless us with a gift, we'd be so grateful for a monetary contribution. Thank you for your love and support.
+        </p>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom: 20px;">
+          <h3>MoMo Numbers</h3>
+          <p>
+            1. MTN - 0558284210<br>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Bank Accounts</h3>
+          <p>
+            CBG Bank - 1651010127338<br>
+            <strong>Name:</strong> Becky-Bianca Dede Akiti/Christopher Oklu
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    With love, Christopher &amp; Dr. Becky Bianca<br>
+    <small>Website designed by Meshel PADE - 0279208072/0544060809</small>
+  </footer>
+
+  <script>
+    (function () {
+      try {
+        emailjs.init("YOUR_PUBLIC_KEY");
+      } catch (e) {
+        console.log("EmailJS not initialized yet. Add your real public key.");
+      }
+    })();
+
+    const guestList = {
+      "John Mensah": { table: 5, category: "Friends" },
+      "Ama Boateng": { table: 2, category: "Family" },
+      "Kwame Asante": { table: 10, category: "VIP" },
+      "Efua Bediako": { table: 8, category: "Friends" },
+      "Michael Ofori": { table: 3, category: "Family" }
+    };
+
+    const normalize = (value) =>
+      value
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    function findGuest(name) {
+      const normalizedInput = normalize(name);
+      const entries = Object.entries(guestList);
+
+      let exact = entries.find(([guestName]) => normalize(guestName) === normalizedInput);
+      if (exact) return { name: exact[0], details: exact[1] };
+
+      let partial = entries.find(([guestName]) => normalize(guestName).includes(normalizedInput) || normalizedInput.includes(normalize(guestName)));
+      if (partial) return { name: partial[0], details: partial[1] };
+
+      return null;
+    }
+
+    const form = document.getElementById('rsvpForm');
+    const resultBox = document.getElementById('result');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const attendance = document.getElementById('attendance').value;
+      const notes = document.getElementById('notes').value.trim();
+
+      if (!name || !email || !attendance) {
+        showResult('Please complete all required fields before submitting.', 'error');
+        return;
+      }
+
+      const guest = findGuest(name);
+
+      if (attendance === 'Regretfully unable to attend') {
+        showResult(`Thank you, ${name}. Your response has been noted. We will miss you on our special day.`, 'success');
+        return;
+      }
+
+      if (!guest) {
+        showResult('We could not find your name on the guest list. Please contact the host or event coordinator for assistance.', 'error');
+        return;
+      }
+
+      const message = `✅ Welcome ${guest.name}. Your RSVP is confirmed.<br><br><strong>Table Number:</strong> ${guest.details.table}<br><strong>Guest Category:</strong> ${guest.details.category}`;
+      showResult(message, 'success');
+      sendEmail(guest.name, email, guest.details.table, guest.details.category, notes);
+    });
+
+    function showResult(message, type) {
+      resultBox.className = `result show ${type}`;
+      resultBox.innerHTML = message;
+    }
+
+    function sendEmail(name, email, tableNumber, category, notes) {
+      const templateParams = {
+        to_name: name,
+        to_email: email,
+        table_number: tableNumber,
+        guest_category: category,
+        message: `Hello ${name}, your RSVP has been confirmed. Your table number is ${tableNumber}. Guest category: ${category}. We look forward to celebrating with you.`,
+        note: notes || 'No personal message added.'
+      };
+
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function () {
+          console.log('Email sent successfully');
+        })
+        .catch(function (error) {
+          console.log('Email sending failed', error);
+        });
+    }
+
+    function updateCountdown() {
+      const weddingDate = new Date('June 20, 2026 14:00:00').getTime();
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance <= 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
