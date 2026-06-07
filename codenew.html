@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <style>
     :root {
       --burnt-orange: #b85c38;
@@ -650,12 +651,12 @@
       <div class="hero-meta">
         <div class="pill">20th June, 2026</div>
         <div class="pill">Burnt Orange &amp; Sage Green</div>
-          </div>
+        <div class="pill">Luxury Celebration</div>
+      </div>
 
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#rsvp">RSVP Now</a>
+        <a class="btn btn-primary" href="#rsvp">RSVP &amp; Find Table</a>
         <a class="btn btn-secondary" href="#details">View Invitation</a>
-
       </div>
 
       <div class="countdown" id="countdown">
@@ -689,23 +690,23 @@
           <h3>Ceremony</h3>
           <p>
             Saturday, 20th June, 2026<br>
-            Ceremony begins at 10:00 AM prompt,<br>
+            Ceremony begins at 1:00 PM prompt,<br>
             Reception follows after service @ Tema Parents
           </p>
         </div>
 
         <div class="card" style="margin-bottom: 20px;">
-          <h3>Wedding Location</h3>
+          <h3>Location</h3>
           <p>
-            Tema Joint church<br>
+            Wedding venue<br>
           </p>
           <div style="margin-top: 18px;">
-            <a class="btn btn-primary" href="https://l1nk.dev/5k0q5ls" target="_blank" ref="noreferrer">Open Venue Location</a>
+            <a class="btn btn-primary" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Open Venue Location</a>
           </div>
         </div>
 
         <div class="card">
-          <h3>Please Scan for Program Outline</h3>
+          <h3>Dress Code</h3>
           <p>
             Elegant formal attire in tones that complement our celebration palette:
             burnt orange, sage green.
@@ -719,139 +720,78 @@
     </div>
   </section>
 
-  ```html
-<!-- JOURNEY SECTION -->
-<section class="section reveal" id="journey">
-  <div class="section-title">
-    <span class="mini">Our Journey</span>
-    <h2>A Glimpse of Our Story</h2>
-
-    <p style="max-width:900px; margin:auto; text-align:left; line-height:2;">
-      Our love story begun through our service in the church.
-
-      I had joined the Edify church to keep fellowship while I pursued graduate medicine in Korlebu Teaching Hospital. Christopher served as the associate pastor in the same church.
-
-      We were assigned to the same hostel for evangelism. Looking back perhaps the closing of doors in our faces and cold reception brought us together to encourage each other.
-
-      We worked on many other projects together : worship nights, church hangouts for several years.
-
-      Our relationship remained platonic for several years. I was single and he was in a relationship then.
-
-      On one such evening, I inquired about how his relationship life was going because I had been expecting a wedding invitation for a while.
-
-      He confided in me how it had come to an end. I left that meeting with a resolve to pray for him that God would send him a good woman.
-
-      There was a holy anger in my spirit as to how someone who had loved God and served so faithfully lacked a help mate. I still can't believe I was praying for my own self.
-
-      After that conversation Pastor Chris begun to check up a bit more frequently. He suddenly needed to keep the camera bag because it suddenly became heavy. Lol.
-
-      The awkward church side hugs became full hugs, the conversation moved from "have you bought the communion" to "have you eaten".
-
-      One evening walking to prayer meeting I prayed slightly in my heart that God would bring a Godly man my way.
-
-      That same evening Lydia my close friend called to ask if I had seen anyone in the church I was considering. I mentioned that I saw Pastor Chris as my brother. She asked which of my mother's children he was 😅.
-
-      I begun to think about him a bit more and started a fast for some clarity.
-
-      Shortly afterwards he asked me to go out for dinner with him after rehearsal.
-
-      At that date we had a long conversation and had to leave because the restaurant was closing.
-
-      I knew at that meeting he would be my husband. There was so much peace just considering the idea.
-
-      I told my mum I felt too young to date. She called me a foolish girl and encouraged me to go ahead.
-
-      As the days went by the awkward side hugs in church became full hugs. The short official calls for church became long night calls.
-
-      Time flies when you're having fun. Today, we celebrate a year and a half of growing in love and understanding (no drama here) trusting God for many more years of bliss. 🥰❤️
-    </p>
-    <p>
-      </p>
-      
-        </div>
-</section>
-
-
-<!-- GALLERY SECTION -->
-<section class="section reveal" id="gallery">
-  <div class="section-title">
-    <span class="mini">Gallery</span>
-    <h2>Beautiful Moments Together</h2>
-
-    <p>
-      A collection of beautiful memories we can’t wait to continue creating together.
-    </p>
-  </div>
-
-  <div class="gallery-grid">
-
-    <div class="gallery-item large">
-      <img src="Images/d1.jpg" alt="Christopher and Dr. Becky Bianca">
-      <div class="gallery-caption">
-        Our favorite smile, our forever story.
-      </div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="Images/d2.jpg" alt="Couple portrait">
-      <div class="gallery-caption">
-        Joy, laughter, and love.
-      </div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="Images/d3.jpg" alt="Couple portrait">
-      <div class="gallery-caption">
-        Gracefully becoming one.
-      </div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="Images/d4.jpg" alt="Couple portrait">
-      <div class="gallery-caption">
-        A celebration worth dressing up for.
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- GALLERY MODAL -->
-<div class="gallery-modal" id="galleryModal">
-
-  <div class="gallery-modal-content">
-
-    <button class="close-modal" id="closeModal">
-      &times;
-    </button>
-
-    <img id="modalImage" src="" alt="Gallery Preview">
-
-    <div class="gallery-actions">
-      <a id="downloadBtn" class="btn btn-primary" download>
-        Download Image
-      </a>
-    </div>
-
-  </div>
-
-</div>
-```
-
+  <section class="section reveal" id="gallery">
+    <div class="section-title">
+      <span class="mini">Our Journey</span>
+      <h2>A Glimpse of Our Story</h2>
       <p>
-        
+        Our love story begun through our service in the church.
+
+I had joined the Edify church to keep fellowship while I pursued graduate medicine in Korlebu Teaching Hospital. Christopher served as the associate pastor in the same church.
+
+We were assigned to the same hostel for evangelism.
+Looking back perhaps the closing of doors in our faces and cold reception brought us together to encourage each other. 
+
+We worked on many other projects together :worship nights, church hangouts for several years.
+
+Our relationship remained platonic for several years. I was single and he was in a relationship then.
+
+On one such evening, I inquired about how his relationship life was going because I had been expecting a wedding invitation for a while.
+
+He confided in me how it had come to an end..I left that meeting with a resolve to pray for him that God would send him a good woman. 
+
+There was a holy anger in my spirit as to how someone who had loved God and served so faithfully lacked a help mate. I still can't believe I was praying for my own self.
+
+After that conversation Pastor Chris begun to check up a bit more frequently.. He suddenly needed to keep the camera bag because it suddenly became heavy. Lol.
+
+The awkward church side hugs became full hugs, the conversation moved from "have you bought the communion" to have you eaten. <br>
+
+One evening  walking to prayer meeting I prayed slightly in my heart that God would bring a Godly man my way... 
+
+That same evening Lydia my close friend called to ask if I had seen anyone in the church I was considering. I mentioned that I saw Pastor Chris as my brother. She asked which of my mother's children he was 😅.
+I begun to think about him a bit more and started a fast for some clarity.
+
+Shortly afterwards he asked me to go out for dinner with him after rehearsal...
+
+At that date we had a long conversation and had to leave because the restaurant was closing.
+
+I knew at that meeting he would be my husband.
+There was so much peace just considering the idea ..
+
+I told my mum I felt too young to date "she called me a foolish girl and encouraged me to go ahead"
+
+As the days went by the awkward side hugs in church became full hugs.The short official calls for church became long night calls. 
+
+Time flies when you're having fun. Today, we celebrate a year and a half of growing in love and understanding (no drama here) trusting God for many more years of bliss.🥰❤️
       </p>
     </div>
 
-    
+    <div class="gallery-grid">
+      <div class="gallery-item large">
+        <img src="Images/d1.jpg" alt="Christopher and Dr. Becky Bianca">
+        <div class="gallery-caption">Our favorite smile, our forever story.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Images/d2.jpg" alt="Couple portrait">
+        <div class="gallery-caption">Joy, laughter, and love.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Images/d3.jpg" alt="Couple portrait">
+        <div class="gallery-caption">Gracefully becoming one.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Images/d4.jpg" alt="Couple portrait">
+        <div class="gallery-caption">A celebration worth dressing up for.</div>
+      </div>
+    </div>
+  </section>
+
   <section class="section reveal" id="rsvp">
     <div class="section-title">
       <span class="mini">RSVP</span>
-      <h2>Confirm Your Attendance</h2>
+      <h2>Confirm Attendance &amp; Receive Your Table Number</h2>
       <p>
-        Kindly type your name, let us know if you will attend, state your relation to the couple,
-        and leave a beautiful message for Christopher and Dr. Becky Bianca.
+        Enter your details below. If your name is on the guest list, your table number appears instantly and can also be sent to your email.
       </p>
     </div>
 
@@ -861,38 +801,37 @@
           <form id="rsvpForm" class="form-grid">
             <div>
               <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+              <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="Enter your email address" required>
             </div>
 
             <div>
               <label for="attendance">Will you be attending?</label>
-              <select id="attendance" name="attendance" required>
+              <select id="attendance" required>
                 <option value="">Select an option</option>
                 <option value="Yes, I will attend">Yes, I will attend</option>
-                <option value="No, I cannot attend">No, I cannot attend</option>
-                <option value="Maybe">Maybe</option>
+                <option value="Regretfully unable to attend">Regretfully unable to attend</option>
               </select>
             </div>
 
             <div>
-              <label for="relation">Relation to the Couple</label>
-              <input type="text" id="relation" name="relation" placeholder="Example: Family, Friend, Church member, Colleague" required>
+              <label for="notes">Message to the Couple (Optional)</label>
+              <textarea id="notes" placeholder="Leave a kind note or special message"></textarea>
             </div>
 
-            <div>
-              <label for="message">Message to the Couple</label>
-              <textarea id="message" name="message" placeholder="Leave a kind note or special message for the couple"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" id="submitRsvpBtn">Submit RSVP</button>
+            <button type="submit" class="btn btn-primary">Submit RSVP</button>
           </form>
 
           <div id="result" class="result"></div>
 
           <div class="badge-row">
-            <div class="badge">Attendance confirmation</div>
-            <div class="badge">Relation to couple</div>
-            <div class="badge">Message saved</div>
+            <div class="badge">Instant table lookup</div>
+            <div class="badge">Email confirmation</div>
+            <div class="badge">Elegant guest experience</div>
           </div>
         </div>
       </div>
@@ -901,20 +840,17 @@
         <div class="card" style="margin-bottom: 20px;">
           <h3>How It Works</h3>
           <ul>
-            <li>Guest enters their full name.</li>
-            <li>Guest confirms whether they will attend or not.</li>
-            <li>Guest states their relation to the couple.</li>
-            <li>Guest can leave a message for the couple.</li>
-            <li>All responses will populate in your connected Google Sheet, which you can download as Excel.</li>
+            <li>Guest enters full name and email address.</li>
+            <li>Kindly make sure your name is spelt correctly</li>
+            <li>If you face any challenges kindly contact 0544060809</li>
           </ul>
         </div>
 
         <div class="card">
           <h3>Important Notes</h3>
           <ul>
-            <li>Please make sure your name is spelt correctly.</li>
-            <li>If you face any challenges, kindly contact 0544060809.</li>
-            <li>To activate the spreadsheet, replace the Google Script URL in the code with your deployed Apps Script Web App URL.</li>
+            <li>The table number you receive is the table you will be seated at during the event</li>
+            <li>.</li>
           </ul>
         </div>
       </div>
@@ -946,9 +882,6 @@
           <p>
             1. MTN - 0558284210<br>
           </p>
-          <p>
-            Becky Bianca Dede Akiti
-          </p>
         </div>
 
         <div class="card">
@@ -957,19 +890,10 @@
             CBG Bank - 1651010127338<br>
             <strong>Name:</strong> Becky-Bianca Dede Akiti/Christopher Oklu
           </p>
-          <p> Branch - Weija</p>
         </div>
       </div>
     </div>
   </section>
-
-  <section class="section reveal" id="MC">
-    <div class="section-title">
-      <span class="mini">Master of Ceremony</span>
-      <h2>Prince Dagadu</h2>
-      <p>
-      </p>
-    </div>
 
   <footer class="footer">
     With love, Christopher &amp; Dr. Becky Bianca<br>
@@ -977,92 +901,97 @@
   </footer>
 
   <script>
-    /*
-      GOOGLE SHEET SETUP
-      1. Create a Google Sheet with a tab named: RSVP
-      2. Add these headings in row 1:
-         Timestamp | Full Name | Attendance | Relation | Message
-      3. Go to Extensions > Apps Script and paste this:
+    (function () {
+      try {
+        emailjs.init("YOUR_PUBLIC_KEY");
+      } catch (e) {
+        console.log("EmailJS not initialized yet. Add your real public key.");
+      }
+    })();
 
-         function doPost(e) {
-           const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("RSVP");
-           const data = JSON.parse(e.postData.contents);
+    const guestList = {
+      "John Mensah": { table: 5, category: "Friends" },
+      "Ama Boateng": { table: 2, category: "Family" },
+      "Kwame Asante": { table: 10, category: "VIP" },
+      "Efua Bediako": { table: 8, category: "Friends" },
+      "Michael Ofori": { table: 3, category: "Family" }
+    };
 
-           sheet.appendRow([
-             new Date(),
-             data.name,
-             data.attendance,
-             data.relation,
-             data.message
-           ]);
+    const normalize = (value) =>
+      value
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
 
-           return ContentService
-             .createTextOutput(JSON.stringify({ success: true }))
-             .setMimeType(ContentService.MimeType.JSON);
-         }
+    function findGuest(name) {
+      const normalizedInput = normalize(name);
+      const entries = Object.entries(guestList);
 
-      4. Deploy > New deployment > Web app
-         Execute as: Me
-         Who has access: Anyone
-      5. Copy the Web App URL and paste it below.
-    */
+      let exact = entries.find(([guestName]) => normalize(guestName) === normalizedInput);
+      if (exact) return { name: exact[0], details: exact[1] };
 
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyuqY4_jQuxtMmeu1o7KPg4KSFXc7gTpJh4LrwZWDYGCie7k7TRtafI94FMKCY-nx4T/exec";
+      let partial = entries.find(([guestName]) => normalize(guestName).includes(normalizedInput) || normalizedInput.includes(normalize(guestName)));
+      if (partial) return { name: partial[0], details: partial[1] };
+
+      return null;
+    }
 
     const form = document.getElementById('rsvpForm');
     const resultBox = document.getElementById('result');
-    const submitBtn = document.getElementById('submitRsvpBtn');
 
-    form.addEventListener('submit', async function (e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
       const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
       const attendance = document.getElementById('attendance').value;
-      const relation = document.getElementById('relation').value.trim();
-      const message = document.getElementById('message').value.trim();
+      const notes = document.getElementById('notes').value.trim();
 
-      if (!name || !attendance || !relation) {
-        showResult('Please enter your name, attendance status, and relation to the couple.', 'error');
+      if (!name || !email || !attendance) {
+        showResult('Please complete all required fields before submitting.', 'error');
         return;
       }
 
-      if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "PASTE_YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE") {
-        showResult('Your RSVP form is ready, but the Google Sheet link has not been added yet. Please paste your Google Apps Script Web App URL in the code.', 'error');
+      const guest = findGuest(name);
+
+      if (attendance === 'Regretfully unable to attend') {
+        showResult(`Thank you, ${name}. Your response has been noted. We will miss you on our special day.`, 'success');
         return;
       }
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
-
-      try {
-        await fetch(GOOGLE_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8'
-          },
-          body: JSON.stringify({
-            name: name,
-            attendance: attendance,
-            relation: relation,
-            message: message
-          })
-        });
-
-        showResult(`Thank you, ${name}. Your RSVP has been received.`, 'success');
-        form.reset();
-      } catch (error) {
-        showResult('Sorry, something went wrong. Please try again or contact the event coordinator.', 'error');
-        console.log('RSVP submission failed:', error);
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit RSVP';
+      if (!guest) {
+        showResult('We could not find your name on the guest list. Please contact the host or event coordinator for assistance.', 'error');
+        return;
       }
+
+      const message = `✅ Welcome ${guest.name}. Your RSVP is confirmed.<br><br><strong>Table Number:</strong> ${guest.details.table}<br><strong>Guest Category:</strong> ${guest.details.category}`;
+      showResult(message, 'success');
+      sendEmail(guest.name, email, guest.details.table, guest.details.category, notes);
     });
 
     function showResult(message, type) {
       resultBox.className = `result show ${type}`;
       resultBox.innerHTML = message;
+    }
+
+    function sendEmail(name, email, tableNumber, category, notes) {
+      const templateParams = {
+        to_name: name,
+        to_email: email,
+        table_number: tableNumber,
+        guest_category: category,
+        message: `Hello ${name}, your RSVP has been confirmed. Your table number is ${tableNumber}. Guest category: ${category}. We look forward to celebrating with you.`,
+        note: notes || 'No personal message added.'
+      };
+
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function () {
+          console.log('Email sent successfully');
+        })
+        .catch(function (error) {
+          console.log('Email sending failed', error);
+        });
     }
 
     function updateCountdown() {

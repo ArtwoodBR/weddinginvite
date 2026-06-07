@@ -1,0 +1,87 @@
+<section class="section reveal" id="gallery">
+  <div class="section-title">
+    <span class="mini">Gallery</span>
+    <h2>Beautiful Moments Together</h2>
+    <p>
+      A collection of beautiful memories we can’t wait to continue creating together.
+    </p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item large">
+      <img src="Images/d1.jpg" alt="Christopher and Dr. Becky Bianca">
+      <div class="gallery-caption">Our favorite smile, our forever story.</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="Images/d2.jpg" alt="Couple portrait">
+      <div class="gallery-caption">Joy, laughter, and love.</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="Images/d3.jpg" alt="Couple portrait">
+      <div class="gallery-caption">Gracefully becoming one.</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="Images/d4.jpg" alt="Couple portrait">
+      <div class="gallery-caption">A celebration worth dressing up for.</div>
+    </div>
+  </div>
+</section>
+<section class="section reveal" id="journey">
+  <div class="section-title">
+    <span class="mini">Our Journey</span>
+    <h2>A Glimpse of Our Story</h2>
+
+    <p>
+      Our love story begun through our service in the church...
+
+      <!-- Paste the full story text here -->
+    </p>
+  </div>
+</section>
+<!-- Gallery Modal -->
+<div class="gallery-modal" id="galleryModal">
+  <div class="gallery-modal-content">
+    <button class="close-modal" id="closeModal">&times;</button>
+
+    <img id="modalImage" src="" alt="Gallery Preview">
+
+    <div class="gallery-actions">
+      <a id="downloadBtn" class="btn btn-primary" download>
+        Download Image
+      </a>
+    </div>
+  </div>
+</div>
+/* Gallery Modal Functionality */
+const galleryItems = document.querySelectorAll('.gallery-item img');
+const galleryModal = document.getElementById('galleryModal');
+const modalImage = document.getElementById('modalImage');
+const closeModal = document.getElementById('closeModal');
+const downloadBtn = document.getElementById('downloadBtn');
+
+galleryItems.forEach((img) => {
+  img.addEventListener('click', () => {
+    galleryModal.classList.add('active');
+
+    modalImage.src = img.src;
+    downloadBtn.href = img.src;
+  });
+});
+
+closeModal.addEventListener('click', () => {
+  galleryModal.classList.remove('active');
+});
+
+galleryModal.addEventListener('click', (e) => {
+  if (e.target === galleryModal) {
+    galleryModal.classList.remove('active');
+  }
+});
+const guestList = {
+  "John Mensah": { table: 5, category: "Friends" },
+  "Ama Boateng": { table: 2, category: "Family" }
+};
+Full Name | Table Number | Category | Email | RSVP Status
