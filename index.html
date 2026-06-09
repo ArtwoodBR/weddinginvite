@@ -621,6 +621,52 @@
       .btn {
         width: 100%;
       }
+      .gallery-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 999;
+}
+
+.gallery-modal.show {
+  display: flex;
+}
+
+.gallery-modal-content {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.gallery-modal-content img {
+  width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+.close-modal {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  color: #000;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.gallery-actions {
+  margin-top: 18px;
+}
     }
   </style>
 </head>
@@ -697,7 +743,7 @@
         <div class="card" style="margin-bottom: 20px;">
           <h3>Wedding Location</h3>
           <p>
-            Tema Joint church<br>
+            Tema Joint church @ 10:00 AM<br>
           </p>
           <div style="margin-top: 18px;">
             <a class="btn btn-primary" href="https://l1nk.dev/5k0q5ls" target="_blank" ref="noreferrer">Open Venue Location</a>
@@ -705,10 +751,12 @@
         </div>
 
         <div class="card">
-          <h3>Please Scan for Program Outline</h3>
+          <h3>Reception Location</h3>
           <p>
-            Elegant formal attire in tones that complement our celebration palette:
-            burnt orange, sage green.
+          Tema Parents @ 1:00 PM<br>
+          </p>
+          <div style="margin-top: 18px;">
+            <a class="btn btn-primary" href="https://l1nk.dev/y4hghg9" target="_blank" ref="noreferrer">Open Venue Location</a>
           </p>
         </div>
       </div>
@@ -719,7 +767,6 @@
     </div>
   </section>
 
-  ```html
 <!-- JOURNEY SECTION -->
 <section class="section reveal" id="journey">
   <div class="section-title">
@@ -727,6 +774,7 @@
     <h2>A Glimpse of Our Story</h2>
 
     <p style="max-width:900px; margin:auto; text-align:left; line-height:2;">
+      
       Our love story begun through our service in the church.
 
       I had joined the Edify church to keep fellowship while I pursued graduate medicine in Korlebu Teaching Hospital. Christopher served as the associate pastor in the same church.
@@ -903,9 +951,8 @@
           <ul>
             <li>Guest enters their full name.</li>
             <li>Guest confirms whether they will attend or not.</li>
-            <li>Guest states their relation to the couple.</li>
+            <li>Guest states their relation with the couple.</li>
             <li>Guest can leave a message for the couple.</li>
-            <li>All responses will populate in your connected Google Sheet, which you can download as Excel.</li>
           </ul>
         </div>
 
@@ -914,7 +961,6 @@
           <ul>
             <li>Please make sure your name is spelt correctly.</li>
             <li>If you face any challenges, kindly contact 0544060809.</li>
-            <li>To activate the spreadsheet, replace the Google Script URL in the code with your deployed Apps Script Web App URL.</li>
           </ul>
         </div>
       </div>
@@ -986,19 +1032,18 @@
 
          function doPost(e) {
            const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("RSVP");
-           const data = JSON.parse(e.postData.contents);
 
            sheet.appendRow([
              new Date(),
-             data.name,
-             data.attendance,
-             data.relation,
-             data.message
+             e.parameter.name,
+             e.parameter.attendance,
+             e.parameter.relation,
+             e.parameter.message
            ]);
 
            return ContentService
-             .createTextOutput(JSON.stringify({ success: true }))
-             .setMimeType(ContentService.MimeType.JSON);
+             .createTextOutput("Success")
+             .setMimeType(ContentService.MimeType.TEXT);
          }
 
       4. Deploy > New deployment > Web app
@@ -1007,7 +1052,7 @@
       5. Copy the Web App URL and paste it below.
     */
 
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyuqY4_jQuxtMmeu1o7KPg4KSFXc7gTpJh4LrwZWDYGCie7k7TRtafI94FMKCY-nx4T/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx-AvveMD6xf7LWyzSdVwGm2heDAiqykUnpflLVEIasCOiUgfKSzx2xjlZZp6kjbaPrmw/exec";
 
     const form = document.getElementById('rsvpForm');
     const resultBox = document.getElementById('result');
@@ -1026,8 +1071,9 @@
         return;
       }
 
-      if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "PASTE_YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE") {
+      if (!GOOGLE_SCRIPT_URL) {
         showResult('Your RSVP form is ready, but the Google Sheet link has not been added yet. Please paste your Google Apps Script Web App URL in the code.', 'error');
+        console.log('Google script not working')
         return;
       }
 
@@ -1035,18 +1081,16 @@
       submitBtn.textContent = 'Submitting...';
 
       try {
+        const formData = new URLSearchParams();
+        formData.append('name', name);
+        formData.append('attendance', attendance);
+        formData.append('relation', relation);
+        formData.append('message', message);
+
         await fetch(GOOGLE_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8'
-          },
-          body: JSON.stringify({
-            name: name,
-            attendance: attendance,
-            relation: relation,
-            message: message
-          })
+          body: formData
         });
 
         showResult(`Thank you, ${name}. Your RSVP has been received.`, 'success');
@@ -1101,6 +1145,34 @@
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    const galleryImages = document.querySelectorAll(".gallery-item img");
+const galleryModal = document.getElementById("galleryModal");
+const modalImage = document.getElementById("modalImage");
+const closeModal = document.getElementById("closeModal");
+const downloadBtn = document.getElementById("downloadBtn");
+
+galleryImages.forEach((img) => {
+  img.style.cursor = "pointer";
+
+  img.addEventListener("click", () => {
+    modalImage.src = img.src;
+    downloadBtn.href = img.src;
+    downloadBtn.setAttribute("download", img.src.split("/").pop());
+    galleryModal.classList.add("show");
+  });
+});
+
+closeModal.addEventListener("click", () => {
+  galleryModal.classList.remove("show");
+  modalImage.src = "";
+});
+
+galleryModal.addEventListener("click", (e) => {
+  if (e.target === galleryModal) {
+    galleryModal.classList.remove("show");
+    modalImage.src = "";
+  }
+});
   </script>
 </body>
 </html>
